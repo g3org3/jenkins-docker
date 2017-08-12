@@ -1,0 +1,13 @@
+version: '2'
+services:
+  ci:
+    build: .
+    privileged: true
+    volumes:
+      - ./data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    extra_hosts:
+      - ""
+    ports:
+      - "2001:5000"
+      - "2000:8080"
